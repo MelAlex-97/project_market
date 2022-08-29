@@ -1,0 +1,34 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "standard",
+        "prettier"
+    ],
+    "rules": {
+        "node/exports-style": [ "error", "module.exports" ],
+        "node/no-deprecated-api": "error",
+        "node/no-unsupported-features/es-builtins": "error",
+        "node/no-unsupported-features/es-syntax": "error",
+        "node/no-unsupported-features/node-builtins": "error",
+        "node/no-mixed-requires": "error",
+        "node/prefer-promises/fs": "error",
+        "no-console": "error",
+        "object-shorthand": "error",
+        "no-extend-native": "off",
+        "no-prototype-builtins": 0
+    },
+    "overrides": [{
+      "files": "*.spec.js",
+      "rules": {
+          "no-unused-expressions": "off"
+      },
+      "globals": {
+          "describe": true,
+          "it": true,
+          "expect": true
+      }
+    }]
+}

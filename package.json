@@ -1,0 +1,59 @@
+{
+  "name": "market",
+  "version": "1.0.0",
+  "description": "project for study nodejs",
+  "main": "app.js",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "check-quality": "npx eslint market/",
+    "check-formatting": "npx prettier -l \"market/**/*.{js,md,json,css}\"",
+    "fix-formatting": "npx prettier --write \"market/**/*.{js,md,json,css}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dreadnough/node_01.git"
+  },
+  "author": "node_01 team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dreadnough/node_01/issues"
+  },
+  "homepage": "https://github.com/dreadnough/node_01#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-joi-validation": "^5.0.1",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.0.8",
+    "nodemon": "^2.0.4",
+    "prettier": "2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run check-quality"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,md}": [
+      "npm  run fix-formatting",
+      "npm run check-formatting"
+    ]
+  }
+}
