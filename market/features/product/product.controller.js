@@ -1,9 +1,8 @@
 const {
   getProductService,
-  createProductBuildMaterialService,
+  createProductService,
   deleteProductService,
   updateProductService,
-  createProductCarService,
 } = require("./product.service");
 
 const { successStatusCode } = require("../constantStatusCode");
@@ -16,14 +15,8 @@ module.exports = {
 
   createProduct: async (req, res) => {
     const { ...productInfo } = req.body;
-    const data = await createProductBuildMaterialService(productInfo);
-    return res.status(successStatusCode).json({ productId: data });
-  },
-
-  createProductCar: async (req, res) => {
-    const { ...productInfo } = req.body;
-    const data = await createProductCarService(productInfo);
-    return res.status(successStatusCode).json({ productId: data });
+    const data = await createProductService(productInfo);
+    return res.status(successStatusCode).json({ productId: data.insertId });
   },
 
   deleteProduct: async (req, res) => {

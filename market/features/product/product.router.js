@@ -7,19 +7,13 @@ const productValidator = require("./product.validator");
 app.get(`/`, productController.getProducts);
 
 app.post(
-  `/`,
-  productController.createProduct,
-  validator.body(productValidator.createProduct.body)
-);
-
-app.post(
-  `/car`,
-  productController.createProductCar,
-  validator.body(productValidator.createProduct.body)
+  `/create`,
+  validator.body(productValidator.createProduct.body),
+  productController.createProduct
 );
 
 app.delete(
-  `/:id`,
+  `/delete/:id`,
   validator.params(productValidator.deleteProduct.params),
   productController.deleteProduct
 );
